@@ -1,0 +1,9 @@
+.catalog:
+  name: "Redis"
+  version: "v0.1"
+  questions:
+    - variable: "VOL_NAME"
+      label: "VOLUME NAME"
+      description: "NAME of the volume to be created"
+      type: "string"
+      required: true
