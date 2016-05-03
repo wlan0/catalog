@@ -5,6 +5,7 @@ redis:
       VOL_NAME: ${VOL_NAME}
   labels:
           io.rancher.scheduler.global: 'true'
+          io.rancher.container.pull_image: always
   volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/lib:/usr/lib
