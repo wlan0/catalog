@@ -10,4 +10,3 @@ redis:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/lib:/usr/lib
       - /lib:/lib 
-  commmand: ["sleep", "100000"]
