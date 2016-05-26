@@ -3,18 +3,26 @@ tb:
   volumes:
    - /sys/fs/cgroup:/sys/fs/cgroup:ro
   image: wlan0/tb
+  labels:
+      container_name: tb
 
 sds:
   privileged: true
   volumes:
    - /sys/fs/cgroup:/sys/fs/cgroup:ro
   image: wlan0/sds
+  labels:
+      container_name: sds
+      io.rancher.scheduler.affinity:container_label_ne: container_name=sds
 
 mdm:
   privileged: true
   volumes:
    - /sys/fs/cgroup:/sys/fs/cgroup:ro
   image: wlan0/mdm
+  labels:
+      container_name: mdm
+      io.rancher.scheduler.affinity:container_label_ne: container_name=primary-mdm
 
 primary-mdm:
   privileged: true
@@ -23,3 +31,6 @@ primary-mdm:
   image: wlan0/mdm
   command: /usr/sbin/init
   entrypoint: /run_mdm_and_configure.sh
+  labels:
+      container_name: primary-mdm
+      io.rancher.scheduler.affinity:container_label_ne: container_name=mdm
