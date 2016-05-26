@@ -5,6 +5,7 @@ tb:
   image: wlan0/tb
   labels:
       container_name: tb
+      io.rancher.container.pull_image: always
 
 sds:
   privileged: true
@@ -14,6 +15,7 @@ sds:
   labels:
       container_name: sds
       io.rancher.scheduler.affinity:container_label_ne: container_name=sds
+      io.rancher.container.pull_image: always
 
 mdm:
   privileged: true
@@ -23,6 +25,7 @@ mdm:
   labels:
       container_name: mdm
       io.rancher.scheduler.affinity:container_label_ne: container_name=primary-mdm
+      io.rancher.container.pull_image: always
 
 primary-mdm:
   privileged: true
@@ -34,3 +37,4 @@ primary-mdm:
   labels:
       container_name: primary-mdm
       io.rancher.scheduler.affinity:container_label_ne: container_name=mdm
+      io.rancher.container.pull_image: always
