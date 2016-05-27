@@ -3,28 +3,25 @@ rexray:
   pid: host
   privileged: true
   environment:
-      AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
-      AWS_SECRET_KEY: ${AWS_SECRET_KEY}
-      SCALEIO_ENDPOINT: ${SCALEIO_ENDPOINT}
-      SCALEIO_INSECURE: ${SCALEIO_INSECURE}
-      SCALEIO_MDM_USERNAME: ${SCALEIO_MDM_USERNAME}
-      SCALEIO_MDM_PASS: ${SCALEIO_MDM_PASS}
-      SCALEIO_MDM_SYSTEM_ID: ${SCALEIO_MDM_SYSTEM_ID}
-      SCALEIO_PROT_DOMAIN: ${SCALEIO_PROT_DOMAIN}
-      SCALEIO_STORAGE_POOL: ${SCALEIO_STORAGE_POOL}
-      SCALEIO_THIN_OR_THICK_PROVISION: ${SCALEIO_THIN_OR_THICK_PROVISION}
-      RACKSPACE_IDENTITY_URL: ${RACKSPACE_IDENTITY_URL}
-      RACKSPACE_USERNAME: ${RACKSPACE_USERNAME}
-      RACKSPACE_PASS: ${RACKSPACE_PASS}
-      RACKSPACE_TENANT_NAME: ${RACKSPACE_TENANT_NAME}
-      RACKSPACE_REGION: ${RACKSPACE_REGION}
-  volumes:
-      - /run/docker/plugins:/run/docker/plugins
-      - /var:/var:shared
-      - /etc:/etc
-      - /dev:/dev
-      - /opt/emc:/opt/emc
-      - /bin/emc:/bin/emc
+      SCALEIO_STACK_NAME: ${SCALEIO_STACK_NAME}
+      SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
   labels:
-    io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: scaleio.rexray=true
+      io.rancher.sidekicks: scaleio-sdc
   command: ["rexray", "start", "-f"]
+
+scaleio-sdc:
+    image: wlan0/sdc
+    stdin_open: true
+    tty: true
+    privileged: true
+    environment:
+        STACK_NAME: ${SCALEIO_STACK_NAME}
+    volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup
+        - /dev:/dev
+        - /lib/modules:/lib/modules
+        - /opt/emc:/opt/emc
+        - /bin/emc:/bin/emc
+        - /var:/var
+

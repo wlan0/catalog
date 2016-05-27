@@ -3,81 +3,13 @@
   version: "v0.3.2"
   description: "REX-Ray persistent storage"
   questions:
-    - variable: "AWS_ACCESS_KEY"
-      label: "AWS access key"
-      description: "Access key to your AWS account"
-      type: "string"
-      required: true
-    - variable: "AWS_SECRET_KEY"
-      label: "AWS secret key"
-      description: "Secret key to your AWS account"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_ENDPOINT"
-      label: "ScaleIO endpoint"
-      description: "ScaleIO endpoint IP address"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_MDM_USERNAME"
-      label: "ScaleIO Username"
-      description: "ScaleIO Username"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_MDM_PASS"
-      label: "ScaleIO Pass"
-      description: "ScaleIO Pass"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_INSECURE"
-      label: "ScaleIO Pass"
-      description: "ScaleIO Insecure"
-      type: "string"
-      required: false
-      default: "true"
-    - variable: "SCALEIO_MDM_SYSTEM_ID"
+    - variable: "SCALEIO_SYSTEM_ID"
       label: "ScaleIO System ID"
       description: "ScaleIO System ID"
       type: "string"
       required: true
-    - variable: "SCALEIO_PROT_DOMAIN"
-      label: "ScaleIO Protection Domain"
-      description: "ScaleIO Protection Domain"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_STORAGE_POOL"
-      label: "ScaleIO Storage Pool"
-      description: "ScaleIO Storage Pool"
-      type: "string"
-      required: true
-    - variable: "SCALEIO_THIN_OR_THICK_PROVISION"
-      label: "Provisioning Type(Thin/Thick)"
-      description: "SCALEIO Provisioning type"
-      type: "string"
-      required: false
-      default: "ThinProvisioned"
-    - variable: "RACKSPACE_IDENTITY_URL"
-      label: "Rackspace Identity URL"
-      description: "Rackspace Identity URL"
-      type: "string"
-      required: false
-      default: "https://identity.api.rackspacecloud.com/v2.0"
-    - variable: "RACKSPACE_USERNAME"
-      label: "Rackspace Username"
-      description: "Rackspace Username"
-      type: "string"
-      required: true
-    - variable: "RACKSPACE_PASS"
-      label: "Rackspace Password"
-      description: "Rackspace Password"
-      type: "string"
-      required: true
-    - variable: "RACKSPACE_TENANT_NAME"
-      label: "Rackspace Tenant Name/Id"
-      description: "Rackspace Tenant Name/Id"
-      type: "string"
-      required: true
-    - variable: "RACKSPACE_REGION"
-      label: "Rackspace Region"
-      description: "Rackspace Region"
+    - variable: "SCALEIO_STACK_NAME"
+      label: "ScaleIO Stack Name"
+      description: "The name of the stack that is running ScaleIO"
       type: "string"
       required: true
