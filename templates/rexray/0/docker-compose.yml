@@ -21,7 +21,4 @@ scaleio-sdc:
         - /sys/fs/cgroup:/sys/fs/cgroup
         - /dev:/dev
         - /lib/modules:/lib/modules
-        - /opt/emc:/opt/emc
-        - /bin/emc:/bin/emc
-        - /var:/var
 
