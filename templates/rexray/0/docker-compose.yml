@@ -1,17 +1,4 @@
 rexray:
-  image: wlan0/rexray:v0.3.2
-  pid: host
-  privileged: true
-  environment:
-      SCALEIO_STACK_NAME: ${SCALEIO_STACK_NAME}
-      SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
-  labels:
-      io.rancher.scheduler.affinity:host_label: scaleio.rexray=true
-      io.rancher.sidekicks: scaleio-sdc
-      io.rancher.container.pull_image: always
-  command: ["rexray", "start", "-f"]
-
-scaleio-sdc:
     image: wlan0/sdc
     stdin_open: true
     tty: true
@@ -22,6 +9,7 @@ scaleio-sdc:
         - /sys/fs/cgroup:/sys/fs/cgroup
         - /dev:/dev
         - /lib/modules:/lib/modules
-        - /opt/emc:/opt/emc
+        - /run/docker/plugins:/run/docker/plugins
+        - /var:/var:shared
     labels:
         io.rancher.container.pull_image: always
