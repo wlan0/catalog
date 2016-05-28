@@ -5,6 +5,7 @@ rexray:
     privileged: true
     environment:
         STACK_NAME: ${SCALEIO_STACK_NAME}
+        SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
     volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup
         - /dev:/dev
