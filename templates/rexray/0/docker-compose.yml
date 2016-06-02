@@ -3,6 +3,7 @@ rexray:
     stdin_open: true
     tty: true
     privileged: true
+    net: host
     environment:
         STACK_NAME: ${SCALEIO_STACK_NAME}
         SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
