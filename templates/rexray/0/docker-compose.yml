@@ -11,7 +11,7 @@ rexray:
         - /sys/fs/cgroup:/sys/fs/cgroup
         - /dev:/dev
         - /lib/modules:/lib/modules
-        - /run/docker/plugins:/run/docker/plugins:shared
+        - /var/run/docker/plugins:/run/docker/plugins:shared
         - /var/lib/rexray:/var/lib/rexray:shared
         - /var/run/rexray:/var/run/rexray:shared
     labels:
