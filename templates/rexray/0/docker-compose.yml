@@ -8,7 +8,7 @@ rexray:
         STACK_NAME: ${SCALEIO_STACK_NAME}
         SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
     volumes:
-        - /sys/fs/cgroup:/sys/fs/cgroup
+        - /sys:/sys
         - /dev:/dev
         - /lib/modules:/lib/modules
         - /etc/docker/plugins:/etc/docker/plugins
