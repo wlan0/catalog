@@ -1,20 +1,15 @@
 rexray:
-    image: wlan0/sdc
+    image: wlan0/sdc2
     stdin_open: true
     tty: true
     privileged: true
     net: host
     environment:
         STACK_NAME: ${SCALEIO_STACK_NAME}
-        SCALEIO_SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
+        SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
+        MDM_IP:    ${MDM_IP}
     volumes:
-        - /sys:/sys
-        - /dev:/dev
-        - /lib/modules:/lib/modules
-        - /etc/docker/plugins:/etc/docker/plugins
-        - /var/lib/rexray:/var/lib/rexray:shared
-        - /var/run/rexray:/var/run/rexray:shared
-        - /var/log/rexray:/var/log/rexray
+        - /proc:/host/proc
     labels:
         io.rancher.container.pull_image: always
         io.rancher.container.dns: true
