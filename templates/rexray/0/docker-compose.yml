@@ -7,7 +7,7 @@ rexray:
     environment:
         STACK_NAME: ${SCALEIO_STACK_NAME}
         SYSTEM_ID: ${SCALEIO_SYSTEM_ID}
-        MDM_IP:    ${MDM_IP}
+        MDM_IP:    ${SCALEIO_MDM_IP}
     volumes:
         - /proc:/host/proc
     labels:
